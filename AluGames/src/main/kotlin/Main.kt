@@ -1,5 +1,6 @@
 package com.julionborges
 
+import com.google.gson.Gson
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -13,6 +14,9 @@ fun main() {
 
     val response = client.send(request, BodyHandlers.ofString())
 
-    val json = response.body();
-    print(json)
+    val gson = Gson()
+    val myGameInfo = gson.fromJson(response.body(), GameInfo::class.java)
+
+    val myGame = Game(myGameInfo.info.title, myGameInfo.info.thumb)
+    print(myGame)
 }
