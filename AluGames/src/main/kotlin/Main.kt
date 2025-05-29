@@ -48,5 +48,9 @@ fun main() {
         println(myGame)
     }
 
+    result.onSuccess {
+        println("Application closed successfully.")
+    }
+
 
 }
