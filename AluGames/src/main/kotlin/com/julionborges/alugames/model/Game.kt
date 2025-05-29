@@ -1,4 +1,4 @@
-package com.julionborges
+package com.julionborges.alugames.model
 
 data class Game(val title: String, val thumb: String) {
     var description: String? = null
